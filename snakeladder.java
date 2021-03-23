@@ -9,17 +9,24 @@ public class snakeladder
   Random random = new Random();
   int roll = random.nextInt(5)+1;
   System.out.println("Number on the Die : " + roll);
-  int check = random.nextInt(3);
-  switch(check)
+  while(position<=100)
   {
-   case 0 : System.out.println("Ladder");
-            position += roll;
-            break;
-   case 1 : System.out.println("Snake");
-            position -= roll;
-            break;
-   default : System.out.println("No Play");
+   int check = random.nextInt(3);
+   switch(check)
+   {
+    case 0 : System.out.println("Ladder");
+             position += roll;
+             break;
+    case 1 : System.out.println("Snake");
+             position -= roll;
+             if(position<0)
+             {
+               position = 0;
+             }
+             break;
+    default : System.out.println("No Play");
+   }
+   System.out.println("Current position : " + position);
   }
-  System.out.println("Current position : " + position);
  }
 }
