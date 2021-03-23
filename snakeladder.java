@@ -7,15 +7,18 @@ public class snakeladder
   int position = 0;
   System.out.println("Start Position : " + position);
   Random random = new Random();
-  int roll = random.nextInt(5)+1;
-  System.out.println("Number on the Die : " + roll);
-  while(position<=100)
+  while(position<100)
   {
+   int roll = random.nextInt(5)+1;
    int check = random.nextInt(3);
    switch(check)
    {
     case 0 : System.out.println("Ladder");
              position += roll;
+             if(position>100)
+             {
+              position -= roll;
+             }
              break;
     case 1 : System.out.println("Snake");
              position -= roll;
